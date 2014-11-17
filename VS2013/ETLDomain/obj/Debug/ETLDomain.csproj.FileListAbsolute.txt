@@ -1,0 +1,9 @@
+C:\code\ETimeLabor\ETLDomain\bin\Debug\ETLDomain.dll.config
+C:\code\ETimeLabor\ETLDomain\bin\Debug\ETLDomain.dll
+C:\code\ETimeLabor\ETLDomain\bin\Debug\ETLDomain.pdb
+C:\code\ETimeLabor\ETLDomain\bin\Debug\EntityFramework.dll
+C:\code\ETimeLabor\ETLDomain\bin\Debug\EntityFramework.SqlServer.dll
+C:\code\ETimeLabor\ETLDomain\bin\Debug\EntityFramework.xml
+C:\code\ETimeLabor\ETLDomain\bin\Debug\EntityFramework.SqlServer.xml
+C:\code\ETimeLabor\ETLDomain\obj\Debug\ETLDomain.dll
+C:\code\ETimeLabor\ETLDomain\obj\Debug\ETLDomain.pdb

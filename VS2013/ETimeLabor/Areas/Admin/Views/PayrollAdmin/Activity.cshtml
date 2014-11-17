@@ -1,0 +1,180 @@
+﻿@model List<ETimeLabor.Models.Activity>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+
+<style type="text/css">
+    .edit-mode {
+    }
+
+    .edit-activity {
+    }
+
+        .edit-user display-mode {
+        }
+
+    .save-activity edit-mode {
+    }
+
+    .display-mode {
+    }
+
+    .cancel-activity {
+    }
+
+    .webgrid-table {
+        font-family: Arial,Helvetica,sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        width: 650px;
+        display: table;
+        border-collapse: collapse;
+        border: solid px #C5C5C5;
+        background-color: white;
+    }
+
+        .webgrid-table td, th {
+            border: 1px solid #C5C5C5;
+            padding: 3px 7px 2px;
+        }
+
+    .webgrid-table tr:hover {
+        background-color: #f6f70a;
+    }
+
+    .webgrid-header, .webgrid-header a {
+        background-color: #E3E3E3;
+        color: black;
+        text-align: left;
+        text-decoration: none;
+    }
+
+   
+    .webgrid-footer {
+    }
+
+    .webgrid-row-style {
+        padding: 3px 7px 2px;
+    }
+
+    .webgrid-alternating-row {
+        background-color: #F5F5F5;
+        padding: 3px 7px 2px;
+    }
+
+    .col1Width {
+        width: 50px;
+    }
+
+    .col2Width {
+        width: 200px;
+    }
+</style>
+<script type="text/javascript">
+    $(function () {
+        $('.edit-mode').hide();
+        $('.edit-activity, .cancel-activity').on('click', function () {
+            var tr = $(this).parents('tr:first');
+            tr.find('.edit-mode, .display-mode').toggle();
+        });
+
+      
+
+        $('.save-activity').on('click', function () {            
+            var tr = $(this).parents('tr:first');
+            var Code = tr.find("#Code").val();
+            var Description = tr.find("#Description").val();
+            var IsActive = tr.find("#IsActive").is(":checked");
+            var ID = tr.find("#ID").val();
+            
+            tr.find("#lblCode").text(Code);
+            tr.find("#lblDescription").text(Description);
+            tr.find("#lblIsActive").text(IsActive);
+            tr.find('.edit-mode, .display-mode').toggle();
+            var Activity =
+            {
+                "ID": ID,
+                "Code": Code,
+                "Description": Description,
+                "IsActive": IsActive
+            };
+            
+            $.ajax({
+                url: 'Admin/PayrollAdmin/EditActivity',
+                data: JSON.stringify(Activity),
+                type: 'POST',
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {                    
+                    tr.find("#lblCode").text(data.Code);
+                    tr.find("#lblDescription").text(data.Description);
+                    tr.find('#lblIsActive').prop("checked", data.IsActive);
+                    //alert(data.IsActive);
+                },
+                error: function (err) {
+                    alert ("Failed")
+                }
+            });
+
+        });
+    })
+</script>
+
+<h2>Activity</h2>
+@{
+    var grid = new WebGrid(Model,ajaxUpdateContainerId: "gridContent");
+}
+
+<div id="gridContent" style=" padding:20px; ">
+    @grid.GetHtml(
+        tableStyle: "webgrid-table",
+        headerStyle: "webgrid-header",
+        footerStyle: "webgrid-footer",
+        alternatingRowStyle: "webgrid-alternating-row",
+        selectedRowStyle: "webgrid-selected-row",
+        rowStyle: "webgrid-row-style",
+        mode: WebGridPagerModes.All,
+        columns:
+            grid.Columns(
+            grid.Column(null,
+                        null,
+                        format: @<text> 
+                                        <input type="hidden" id="ID" value="@item.ID"/> 
+                                </text>, 
+                                style: "col1Width"),            
+            grid.Column("Code", 
+                        "Code",
+                        format: @<text>  
+                                    <span class="display-mode"> <label id="lblCode" >@item.Code</label> </span>
+                                    <input type="text" id="Code" value="@item.Code" class="edit-mode" />
+                                    @*@Html.TextBox("Code",item.Code, new {@class="edit-mode", size = 20})*@
+                                    
+                                    </text>, 
+                        style: "col1Width" ),
+            grid.Column("Description",
+                        "Description", 
+                        format: @<text>  
+                                    <span class="display-mode"> <label id="lblDescription">@item.Description</label> </span>
+                                    <input type="text" id="Description" value="@item.Description" class="edit-mode" />
+                                </text>, 
+                        style: "col2Width"),
+            grid.Column("IsActive", 
+                        "IsActive", 
+                        format: @<text> 
+                                    <span class="display-mode"> <label id="lblIsActive">@item.IsActive </label></span>  
+                                    <input type="checkbox" id="IsActive" checked="@item.IsActive" class="edit-mode" /> 
+                                </text>, 
+                        style: "col2Width"),           
+            grid.Column("Action", 
+                        format: @<text>
+                                    <button class="edit-activity display-mode">Edit</button>
+                                    <button class="save-activity edit-mode">Save</button>
+                                    <button class="cancel-activity edit-mode">Cancel</button>
+                                </text>, 
+                        style: "col3Width", 
+                        canSort: false)
+               )
+               )
+
+</div>

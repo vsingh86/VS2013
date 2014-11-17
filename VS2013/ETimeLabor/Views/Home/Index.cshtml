@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div>
+    <ul>
+        <li> @Html.ActionLink("Go to Employee", "Index", "People\\Employee") </li>
+        <li> @Html.ActionLink("Go to TimeClock", "Index", "Payroll\\Timeclock")</li>
+        <li> @Html.ActionLink("Go to Admin", "Index", "Admin\\PayrollAdmin")</li>
+    </ul>
+</div>

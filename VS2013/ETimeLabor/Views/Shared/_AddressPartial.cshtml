@@ -1,0 +1,123 @@
+﻿@model ETimeLabor.Models.Address
+
+<div class="container-fluid">
+    <div class="form-group has-error">
+        <div class="row">
+            <div class="col-xs-2">
+                @Html.LabelFor(model => model.Street1)
+            </div>
+            <div class="col-xs-2">
+                @Html.EditorFor(model => model.Street1)
+
+            </div>
+            <div class="col-xs-8">
+                <span class="help-block">
+                    @Html.ValidationMessageFor(model => model.Street1)
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group has-error">
+        <div class="row">
+            <div class="col-xs-2">
+                @Html.LabelFor(model => model.Street2)
+            </div>
+            <div class="col-xs-2">
+                @Html.EditorFor(model => model.Street2)
+
+            </div>
+            <div class="col-xs-8">
+                <span class="help-block">
+                    @Html.ValidationMessageFor(model => model.Street2)
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group has-error">
+        <div class="row">
+            <div class="col-xs-2">
+                @Html.LabelFor(model => model.Street3)
+            </div>
+            <div class="col-xs-2">
+                @Html.EditorFor(model => model.Street3)
+
+            </div>
+            <div class="col-xs-8">
+                <span class="help-block">
+                    @Html.ValidationMessageFor(model => model.Street3)
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group has-error">
+        <div class="row">
+            <div class="col-xs-2">
+                @Html.LabelFor(model => model.City)
+            </div>
+            <div class="col-xs-2">
+                @Html.EditorFor(model => model.City)
+
+            </div>
+            <div class="col-xs-8">
+                <span class="help-block">
+                    @Html.ValidationMessageFor(model => model.City)
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group has-error">
+        <div class="row">
+            <div class="col-xs-2">
+                @Html.LabelFor(model => model.State)
+            </div>
+            <div class="col-xs-2">
+                @Html.EditorFor(model => model.State)
+
+            </div>
+            <div class="col-xs-8">
+                <span class="help-block">
+                    @Html.ValidationMessageFor(model => model.State)
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group has-error">
+        <div class="row">
+            <div class="col-xs-2">
+                @Html.LabelFor(model => model.Zip)
+            </div>
+            <div class="col-xs-2">
+                @Html.EditorFor(model => model.Zip)
+
+            </div>
+            <div class="col-xs-8">
+                <span class="help-block">
+                    @Html.ValidationMessageFor(model => model.Zip)
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group has-error">
+        <div class="row">
+            <div class="col-xs-2">
+                @Html.LabelFor(model => model.Country)
+            </div>
+            <div class="col-xs-2">
+                @Html.EditorFor(model => model.Country)
+
+            </div>
+            <div class="col-xs-8">
+                <span class="help-block">
+                    @Html.ValidationMessageFor(model => model.Country)
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

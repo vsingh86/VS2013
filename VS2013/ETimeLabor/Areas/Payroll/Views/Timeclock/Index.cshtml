@@ -1,0 +1,75 @@
+﻿@model  IEnumerable<ETimeLabor.Areas.Payroll.Models.ShiftPunch>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InDateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OutDateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PunchReasonCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EarnCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActivityCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateModified)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EffectiveDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserModified)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.InDateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OutDateTime)
+        </td>
+        <td>`
+            @Html.DisplayFor(modelItem => item.PunchReasonCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EarnCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActivityCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateModified)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EffectiveDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserModified)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

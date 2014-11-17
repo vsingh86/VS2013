@@ -1,0 +1,334 @@
+﻿@model ETimeLabor.Areas.People.Models.Employee
+@using ETimeLabor.Extensions
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Add New Employee</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+        <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#general" data-toggle="tab">General</a></li>
+        <li><a href="#address" data-toggle="tab">Address</a></li>
+        <li><a href="#employment" data-toggle="tab">Employment</a></li>
+        <li><a href="#other" data-toggle="tab">Other</a></li>
+    </ul>
+
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="general">
+            <div class="container-fluid">
+                <div class="form-group has-error">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            @Html.LabelFor(model => model.FirstName)
+                        </div>
+                        <div class="col-xs-2">
+                            @Html.EditorFor(model => model.FirstName)
+
+                        </div>
+                        <div class="col-xs-8">
+                            <span class="help-block">
+                                @Html.ValidationMessageFor(model => model.FirstName)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group has-error">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            @Html.LabelFor(model => model.LastName)
+                        </div>
+                        <div class="col-xs-2">
+                            @Html.EditorFor(model => model.LastName)
+
+                        </div>
+                        <div class="col-xs-8">
+                            <span class="help-block">
+                                @Html.ValidationMessageFor(model => model.LastName)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group has-error">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            @Html.LabelFor(model => model.MiddleName)
+                        </div>
+                        <div class="col-xs-2">
+                            @Html.EditorFor(model => model.MiddleName)
+
+                        </div>
+                        <div class="col-xs-8">
+                            <span class="help-block">
+                                @Html.ValidationMessageFor(model => model.MiddleName)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group has-error">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            @Html.LabelFor(model => model.NameSuffix)
+                        </div>
+                        <div class="col-xs-2">
+                            @Html.EditorFor(model => model.NameSuffix)
+
+                        </div>
+                        <div class="col-xs-8">
+                            <span class="help-block">
+                                @Html.ValidationMessageFor(model => model.NameSuffix)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group has-error">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            @Html.LabelFor(model => model.PreferredName)
+                        </div>
+                        <div class="col-xs-2">
+                            @Html.EditorFor(model => model.PreferredName)
+
+                        </div>
+                        <div class="col-xs-8">
+                            <span class="help-block">
+                                @Html.ValidationMessageFor(model => model.PreferredName)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group has-error">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            @Html.LabelFor(model => model.FormerName)
+                        </div>
+                        <div class="col-xs-2">
+                            @Html.EditorFor(model => model.FormerName)
+
+                        </div>
+                        <div class="col-xs-8">
+                            <span class="help-block">
+                                @Html.ValidationMessageFor(model => model.FormerName)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group has-error">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            @Html.LabelFor(model => model.Gender)
+                        </div>
+                        <div class="col-xs-2">
+                            @Html.EditorFor(model => model.Gender)
+
+                        </div>
+                        <div class="col-xs-8">
+                            <span class="help-block">
+                                @Html.ValidationMessageFor(model => model.Gender)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group has-error">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            @Html.LabelFor(model => model.DOB)
+                        </div>
+                        <div class="col-xs-2">
+                            @Html.EditorFor(model => model.DOB)
+
+                        </div>
+                        <div class="col-xs-8">
+                            <span class="help-block">
+                                @Html.ValidationMessageFor(model => model.DOB)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group has-error">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            @Html.LabelFor(model => model.BirthPlace)
+                        </div>
+                        <div class="col-xs-2">
+                            @Html.EditorFor(model => model.BirthPlace)
+
+                        </div>
+                        <div class="col-xs-8">
+                            <span class="help-block">
+                                @Html.ValidationMessageFor(model => model.BirthPlace)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group has-error">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            @Html.LabelFor(model => model.EthnicGroup)
+                        </div>
+                        <div class="col-xs-2">
+                            @Html.EditorFor(model => model.EthnicGroup)
+
+                        </div>
+                        <div class="col-xs-8">
+                            <span class="help-block">
+                                @Html.ValidationMessageFor(model => model.EthnicGroup)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group has-error">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            @Html.LabelFor(model => model.SSN)
+                        </div>
+                        <div class="col-xs-2">
+                            @Html.EditorFor(model => model.SSN)
+
+                        </div>
+                        <div class="col-xs-8">
+                            <span class="help-block">
+                                @Html.ValidationMessageFor(model => model.SSN)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="tab-pane" id="address">
+
+            @{Html.RenderPartial("_AddressPartial", new ViewDataDictionary(Model.Address));
+            }
+
+
+        </div>
+        <div class="tab-pane" id="employment">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.EmployeeNumber)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.EmployeeNumber)
+                @Html.ValidationMessageFor(model => model.EmployeeNumber)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.MilitaryStatus)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.MilitaryStatus)
+                @Html.ValidationMessageFor(model => model.MilitaryStatus)
+            </div>
+
+
+            <div class="editor-field">
+                @Html.EditorFor(model => model.IsFullTimeStudent)
+                @Html.LabelFor(model => model.IsFullTimeStudent)
+                @Html.ValidationMessageFor(model => model.IsFullTimeStudent)
+            </div>
+
+            <div class="editor-field">
+                @Html.EditorFor(model => model.IsDisabled)
+                @Html.LabelFor(model => model.IsDisabled)
+                @Html.ValidationMessageFor(model => model.IsDisabled)
+            </div>
+
+            <div class="editor-field">
+                @Html.EditorFor(model => model.IsDisabledVet)
+                @Html.LabelFor(model => model.IsDisabledVet)
+                @Html.ValidationMessageFor(model => model.IsDisabledVet)
+            </div>
+
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.HighestEducationLevel)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.HighestEducationLevel)
+                @Html.ValidationMessageFor(model => model.HighestEducationLevel)
+            </div>
+
+        </div>
+        <div class="tab-pane" id="other">
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CitizenshipCountry)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CitizenshipCountry)
+                @Html.ValidationMessageFor(model => model.CitizenshipCountry)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CitizenshipCountry2)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CitizenshipCountry2)
+                @Html.ValidationMessageFor(model => model.CitizenshipCountry2)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.IsUSWorkEligible)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.IsUSWorkEligible)
+                @Html.ValidationMessageFor(model => model.IsUSWorkEligible)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.VisaNumber)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.VisaNumber)
+                @Html.ValidationMessageFor(model => model.VisaNumber)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.VisaExpireDate)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.VisaExpireDate)
+                @Html.ValidationMessageFor(model => model.VisaExpireDate)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.PassportExpDate)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.PassportExpDate)
+                @Html.ValidationMessageFor(model => model.PassportExpDate)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.PassportCountry)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.PassportCountry)
+                @Html.ValidationMessageFor(model => model.PassportCountry)
+            </div>
+
+        </div>
+    </div>
+
+    <p>
+        <input type="submit" value="Save" />
+    </p>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
